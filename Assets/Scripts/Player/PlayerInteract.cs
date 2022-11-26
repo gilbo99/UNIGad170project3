@@ -30,10 +30,10 @@ public class PlayerInteract : MonoBehaviour
            {
                 Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
                 playerUI.UpdateText(interactable.MessagePromptl);
-               if(Input.GetKeyDown("e"))
+                if(Input.GetKeyDown("e"))
                 {
 
-                   interactable.BaseInteract();
+                    interactable.BaseInteract();
                 }
            } 
         }

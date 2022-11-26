@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     public float speedV = 2.0f;
     public float yaw = 0.0f;
     public float pitch = 0.0f;
-    public float Health = 100f;
 
     public Vector3 startLocation;
 
@@ -95,27 +93,9 @@ public class PlayerMovement : MonoBehaviour
         // Finally, it applies that vector it just made to the character
         controller.Move(move * speed * Time.deltaTime + velocity * Time.deltaTime);
 
-        if (Health <= 0)
-        {
-            
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+       
         
 
     }
-
-
-
-
-    public void TakeDamaged(float Damaged)
-    {
-        
-        Health -= Damaged;
-        if(Health >= 150)
-        {
-            Health = 150f;
-        }
-
-    }
-    
+ 
 }

@@ -19,6 +19,6 @@ public class SendDamaged : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<PlayerMovement>().TakeDamaged(99999);
+        other.GetComponent<PlayerStats>().TakeDamaged(99999);
     }
 }

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Healing : MonoBehaviour
+public class HealingPack : MonoBehaviour
 {
+    public float Heal;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,10 @@ public class Healing : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<PlayerMovement>().TakeDamaged(-200);
+         if(other.GetComponent<PlayerStats>().HP <= 101)
+        {
+        other.GetComponent<PlayerStats>().Healing(100);
+        Destroy(gameObject);
+        }
     }
 }
