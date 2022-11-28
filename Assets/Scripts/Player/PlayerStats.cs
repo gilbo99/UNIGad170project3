@@ -1,22 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 public class PlayerStats : MonoBehaviour
 {
-
+    private SceneController sceneController;
     public float HP = 100;
-    private float Ox = 100;
-    private float MaxHP = 150;
+    public float MaxHP = 150;
     public HPBar hpbar;
-    [SerializeField]public TextMeshProUGUI HPText;
+    [SerializeField]private TextMeshProUGUI HPText;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        hpbar.InitBar(MaxHP);
-        hpbar.SetValue(HP);
-        HPText.text = HP.ToString();
+        SetUp();
     }
 
     // Update is called once per frame
@@ -24,8 +20,7 @@ public class PlayerStats : MonoBehaviour
     {
          if (HP <= 0)
         {
-            
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+           sceneController.ReloadScene();
         }
     }
 
@@ -49,6 +44,12 @@ public class PlayerStats : MonoBehaviour
         hpbar.SetValue(HP);
         HPText.text = HP.ToString();
     }
-
+    private void SetUp()
+    {
+        sceneController = new SceneController();
+        hpbar.InitBar(MaxHP);
+        hpbar.SetValue(HP);
+        HPText.text = HP.ToString();
+    }
     
 }
