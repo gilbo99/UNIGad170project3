@@ -19,6 +19,7 @@ public class HealingPack : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        
          if(other.GetComponent<PlayerStats>().HP <= 101)
         {
         other.GetComponent<PlayerStats>().Healing(100);
