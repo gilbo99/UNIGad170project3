@@ -11,10 +11,10 @@ public class Faceto : MonoBehaviour
 
     void Update()
     {
-        // Rotate the camera every frame so it keeps looking at the target
-        transform.LookAt(target);
-    
-        // Same as above, but setting the worldUp parameter to Vector3.left in this example turns the camera on its side
-        transform.LookAt(target, Vector3.up);
+
+        // Gets XYZ  and sets XZ
+        Vector3 targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);  
+
+        transform.LookAt(targetPosition);                 
     }
 }
