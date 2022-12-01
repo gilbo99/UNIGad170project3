@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        SetUp();
+        SetUp();    
     }
 
     // Update is called once per frame
