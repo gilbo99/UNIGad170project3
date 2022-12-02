@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Tutorial_trigger : MonoBehaviour
+public class Tutorial_Heal_trigger : MonoBehaviour
 {
    [SerializeField] GameObject TutorialScreen;
    [SerializeField] GameObject Player;
@@ -28,7 +28,7 @@ public class Tutorial_trigger : MonoBehaviour
 
      private void StartTutorial()
      {
-          if(EventBus.Current.ReturnTutorial1Trigger())
+          if(EventBus.Current.ReturnTutorial2Trigger())
           {
                Timer = 2.0f;
                Title.text = TitleSave;
@@ -36,7 +36,7 @@ public class Tutorial_trigger : MonoBehaviour
                TutorialScreen.gameObject.SetActive(true);
                Player.GetComponent<PlayerMovement>().enabled = false;
                FinishedTutorial = true;
-               EventBus.Current.haveTutorial1Trigger();
+               EventBus.Current.haveTutorial2Trigger();
                
 
                
