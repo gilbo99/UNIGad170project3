@@ -8,8 +8,9 @@ public class Tutorial_Health_trigger : MonoBehaviour
 {
    [SerializeField] GameObject TutorialScreen;
    [SerializeField] GameObject Player;
-   private bool hasEntered;
+   private bool hasEntered = false;
    private float Timer = 0.0f;
+   private bool playerViewed = false;
    [SerializeField] TextMeshProUGUI Title;
    [SerializeField] TextMeshProUGUI Description;
    [SerializeField] string TitleSave;   
@@ -26,7 +27,7 @@ public class Tutorial_Health_trigger : MonoBehaviour
 
     private void StartTutorial()
     {
-        if(hasEntered == false)
+        if(hasEntered == false && playerViewed == false)
         {
             Timer = 2.0f;
             Title.text = TitleSave;
@@ -45,10 +46,10 @@ public class Tutorial_Health_trigger : MonoBehaviour
         Timer -= Time.deltaTime;
         if(Input.anyKey && hasEntered == true && Timer <= 0)
         {
-               
+            Debug.Log("It's time to stop");               
             TutorialScreen.gameObject.SetActive(false);
             Player.GetComponent<PlayerMovement>().enabled = true;
-               
+            playerViewed = true;
         }
     }
     

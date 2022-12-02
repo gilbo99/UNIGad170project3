@@ -8,7 +8,7 @@ public class Tutorial_trigger : MonoBehaviour
 {
    [SerializeField] GameObject TutorialScreen;
    [SerializeField] GameObject Player;
-   private bool hasEntered;
+   private bool hasEntered = false;
    private float Timer = 0.0f;
    [SerializeField] TextMeshProUGUI Title;
    [SerializeField] TextMeshProUGUI Description;
