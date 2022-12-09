@@ -7,8 +7,8 @@ public class EventBus : MonoBehaviour
 {
     private static EventBus _current;
     //Makes an Event 
-    public bool Tutorial1 = true;
-    public bool Tutorial2 = true;
+    private int HowmanyTutorial = 0;
+    private int totalTutorials = 2;
     public static EventBus Current { get { return _current; } }
    
 
@@ -29,34 +29,19 @@ public class EventBus : MonoBehaviour
         KillFLoor();
     }
 
-    public event Action UnSub;
-    public void UnSubTrigger()
+    // public increase function number by one
+    public void SetTutorialDone()
     {
-        UnSub();
+        HowmanyTutorial++;
+    }
+    // return function number
+
+    public bool ReturnTutorialStatus()
+    {
+        return HowmanyTutorial != totalTutorials;
     }
 
-    public event Action haveTutorial1;
-    public void haveTutorial1Trigger()
-    {
-        Tutorial1 = !Tutorial1;
-    }
-
-    public event Action haveTutorial2;
-    public void haveTutorial2Trigger()
-    {
-      Tutorial2 = !Tutorial2;
-    }
-
-    public event Action ReturnTutorial1;
-    public bool ReturnTutorial1Trigger()
-    {
-        return Tutorial1;
-    }
-    public event Action ReturnTutorial2;
-    public bool ReturnTutorial2Trigger()
-    {
-        return Tutorial2;
-    }
+    
  
 
 }

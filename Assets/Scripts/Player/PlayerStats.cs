@@ -20,7 +20,6 @@ public class PlayerStats : MonoBehaviour
     {
          if (HP <= 0)
         {
-            EventBus.Current.UnSubTrigger();
             sceneController.ReloadScene();
         }
     }
