@@ -15,15 +15,17 @@ public class FloorKiller : MonoBehaviour
 
     void Immaterialise()
     {
+        audioSource.Play();
         gameObject.GetComponent<MeshRenderer>().enabled = !gameObject.GetComponent<MeshRenderer>().enabled;
         gameObject.GetComponent<BoxCollider>().enabled = !gameObject.GetComponent<BoxCollider>().enabled;
-        audioSource.Play();
+        
         
     }
 
 
 
-   void OnDestroy() {
+   void OnDestroy() 
+    {
         EventBus.Current.KillFLoor -= Immaterialise;
     }
    

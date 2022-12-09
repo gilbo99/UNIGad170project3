@@ -9,7 +9,7 @@ public class Pat : Interactable
     private bool Playerpat;
     public float Timer = 0.0f;
     
-    // Start is called before the first frame update
+  // was the first Interactable i used that uses rays so i changed it
     
 
     

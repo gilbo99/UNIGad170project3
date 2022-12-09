@@ -40,6 +40,13 @@ public class EventBus : MonoBehaviour
     {
         return HowmanyTutorial != totalTutorials;
     }
+    
+    public event Action SwitchGasButtons;
+    public void SwitchGasButtonsTrigger()
+    {
+        SwitchGasButtons();
+    }
+
 
     
  
