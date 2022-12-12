@@ -17,10 +17,6 @@
 
     }
 
-    public void LoadMenuScene() 
-    {
-        SceneManager.LoadScene("MenuScene");
-    }
 
     public void NextScene() 
     {
