@@ -20,7 +20,7 @@ public class HealingPack : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         
-         if(other.GetComponent<PlayerStats>().HP <= 101 && other.tag == "Player")
+         if(other.GetComponent<PlayerStats>().HP <= 149 && other.tag == "Player")
         {
         other.GetComponent<PlayerStats>().Healing(100);
         Destroy(gameObject);
