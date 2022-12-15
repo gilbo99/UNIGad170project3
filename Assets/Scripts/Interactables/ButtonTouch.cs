@@ -9,14 +9,20 @@ public class ButtonTouch : MonoBehaviour
     public GameObject Gas;
     public TextMeshProUGUI playertext;
     public string useKey;
+
+    //This is my interact script 
     void Update()
     {
+
+        // when the player hits e it will tell the EventBus to trigger
         if(playercanclick && Input.GetKeyDown("e"))
         {
            EventBus.Current.SwitchGasButtonsTrigger();  
         }
     }
 
+
+    //when the player enters the volume it sets a bool and unsets the bool when they leave
     void OnTriggerEnter()
     {
         playercanclick = true;

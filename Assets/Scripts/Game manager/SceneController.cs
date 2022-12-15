@@ -1,36 +1,14 @@
- using System.Collections;
- using System.Collections.Generic;
- using UnityEngine;
- using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
- public class SceneController
- {
-    // Start is called before the first frame update
-    void Start()
-    {
+public class SceneController
+{
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
-    public void NextScene() 
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void ReloadScene() 
-    {
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-    
-    public void PickScene(string Pick) 
-    {
-       SceneManager.LoadScene(Pick);
-    }
+public void ReloadScene() 
+{
+   SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+}
 
 }

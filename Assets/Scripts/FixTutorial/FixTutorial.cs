@@ -17,7 +17,7 @@ public class FixTutorial : MonoBehaviour
     private bool TutorialNumb;
    
      
-
+    //before the game starts this runs ans asked the EventBus if the Tutorial are finished 
     void Start()
     {
         TutorialNumb = EventBus.Current.ReturnTutorialStatus();
@@ -25,7 +25,7 @@ public class FixTutorial : MonoBehaviour
 
     }
 
-
+    // starts Tutorial when you walk in
     private void OnTriggerEnter(Collider collider)
     {
           
@@ -35,10 +35,16 @@ public class FixTutorial : MonoBehaviour
 
 
 
-     private void StartTutorial()
-     {
+    private void StartTutorial()
+    {
         if(TutorialNumb)
         {
+            /*
+            starts a timer so the Tutorial will stay up for a certan amount of time
+            sets all the text
+            disables PlayerMovement script
+            tells EventBus that it has done one Tutorial
+            */
             Timer = 2.0f;
             Title.text = TitleSave;
             Description.text = DescriptionSave;     
@@ -47,17 +53,22 @@ public class FixTutorial : MonoBehaviour
             FinishedTutorial = true;
             EventBus.Current.SetTutorialDone();
         }  
-     }
+    }
 
-     private void Update()
-     {
-          Timer -= Time.deltaTime;
-          if(Input.anyKey && Timer <= 0 && FinishedTutorial)
-          {
-               TutorialScreen.gameObject.SetActive(false);
-               Player.GetComponent<PlayerMovement>().enabled = true;
-               gameObject.SetActive(false);
-               FinishedTutorial = false;
-          }
-     }    
+    private void Update()
+    {
+        /*
+        time - time taken
+        if any key is pressed and time has passed set time 
+        enables PlayerMovement and disables Tutorial
+        */
+        Timer -= Time.deltaTime;
+        if(Input.anyKey && Timer <= 0 && FinishedTutorial)
+        {
+            TutorialScreen.gameObject.SetActive(false);
+            Player.GetComponent<PlayerMovement>().enabled = true;
+            gameObject.SetActive(false);
+            FinishedTutorial = false;
+        }
+    }    
 }

@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class EventBus : MonoBehaviour
 {
+    // Make it static so it can be Access anywhere
     private static EventBus _current;
-    //Makes an Event 
+    
     private int HowmanyTutorial = 0;
     [SerializeField] int totalTutorials = 3;
     public static EventBus Current { get { return _current; } }
    
-
+    // looks to see if theres not already a event bus if there is it Destroy itself
     private void Awake()
     {
         if (_current != null && _current != this)
@@ -23,7 +24,9 @@ public class EventBus : MonoBehaviour
         }
     }
     
+    //Makes an Event so it can get called 
     public event Action KillFLoor;
+    // is the Event trigger 
     public void KillFLoorTrigger()
     {
         KillFLoor();
