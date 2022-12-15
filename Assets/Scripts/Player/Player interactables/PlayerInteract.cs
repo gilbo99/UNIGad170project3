@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
+
+    //old Interact script
     public GameObject Cam;
     [SerializeField] private float Distance = 3f;
     [SerializeField] private LayerMask mask;

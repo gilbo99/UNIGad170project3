@@ -4,25 +4,16 @@ using UnityEngine;
 
 public class HealingPack : MonoBehaviour
 {
-    public float Heal;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float heal;
+    public float maxHeal;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // when a player enters and his health is under maxHeal and gets healed the heal val 
     void OnTriggerEnter(Collider other)
     {
         
-         if(other.GetComponent<PlayerStats>().HP <= 149 && other.tag == "Player")
+         if(other.GetComponent<PlayerStats>().HP <= maxHeal && other.tag == "Player")
         {
-        other.GetComponent<PlayerStats>().Healing(100);
+        other.GetComponent<PlayerStats>().Healing(heal);
         Destroy(gameObject);
         }
     }

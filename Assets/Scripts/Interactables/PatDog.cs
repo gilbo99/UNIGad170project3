@@ -32,12 +32,14 @@ public class PatDog : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    // by putting the timer in FixedUpdate it counts down correctly 
     void FixedUpdate()
     {
         Timer -= Time.deltaTime;
     }
 
+
+    //changes the text and make it that players are able to press e and when they leave they cant
     void OnTriggerEnter()
     {
         Playercanpat = true;

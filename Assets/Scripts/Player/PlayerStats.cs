@@ -12,10 +12,14 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        SetUp();    
+        //sets hpbars max hp and opens a new SceneController
+        sceneController = new SceneController();
+        hpbar.InitBar(MaxHP);
+        hpbar.SetValue(HP);
+        HPText.text = HP.ToString();    
     }
 
-    // Update is called once per frame
+    // relaods ReloadScene when hp is lower than 0
     void Update()
     {
          if (HP <= 0)
@@ -23,7 +27,7 @@ public class PlayerStats : MonoBehaviour
             sceneController.ReloadScene();
         }
     }
-
+    //takes damaged and sets hp bar
     public void TakeDamaged(float TakenDamaged)
     {
         HP -= TakenDamaged;     
@@ -32,7 +36,7 @@ public class PlayerStats : MonoBehaviour
         
 
     }
-
+    //heals and sets bar
     public void Healing(float Healing)
     {   
         HP += Healing;
@@ -44,12 +48,6 @@ public class PlayerStats : MonoBehaviour
         hpbar.SetValue(HP);
         HPText.text = HP.ToString();
     }
-    private void SetUp()
-    {
-        sceneController = new SceneController();
-        hpbar.InitBar(MaxHP);
-        hpbar.SetValue(HP);
-        HPText.text = HP.ToString();
-    }
+    
     
 }
