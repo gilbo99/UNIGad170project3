@@ -8,18 +8,9 @@ public class MedpackSpawn : MonoBehaviour
     public Transform  Spawn;  
     private Vector3 targetPosition;
 
-    // Start is called before the first frame update
+    // spawns a Prefab of a heal kid that heals 
     void Start()
     {
         Instantiate(myPrefab, new Vector3(Spawn.transform.position.x, Spawn.transform.position.y, Spawn.transform.position.z), Quaternion.identity);       
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-        
-           
-        
     }
 }

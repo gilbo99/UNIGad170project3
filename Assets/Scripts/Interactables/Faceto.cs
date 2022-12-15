@@ -7,7 +7,7 @@ using UnityEngine;
 public class Faceto : MonoBehaviour
 {
     public Transform target;
-    
+   
 
     void Update()
     {

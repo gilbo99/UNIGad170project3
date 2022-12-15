@@ -12,22 +12,23 @@ public class FloorController : MonoBehaviour
 
     void FixedUpdate()
     {
+        
         time += Time.deltaTime;
-
+        
         if(time >= TriggerTime)
         {
             TriggerTimerEvent();
             SetRandomTime();
         }
     }
-
+    //one the timer has finished EventBus is Trigger 
     void TriggerTimerEvent()
     {
         time = 0f;
         EventBus.Current.KillFLoorTrigger();
         
     }
-
+    // sets a random time between MinTime and MaxTime
     void SetRandomTime()
     {
         TriggerTime = Random.Range(MinTime, MaxTime);
