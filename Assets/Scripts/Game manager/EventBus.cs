@@ -8,7 +8,7 @@ public class EventBus : MonoBehaviour
     private static EventBus _current;
     //Makes an Event 
     private int HowmanyTutorial = 0;
-    private int totalTutorials = 3;
+    [SerializeField] int totalTutorials = 3;
     public static EventBus Current { get { return _current; } }
    
 
