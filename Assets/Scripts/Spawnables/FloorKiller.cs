@@ -18,7 +18,7 @@ public class FloorKiller : MonoBehaviour
     {
         // plays audio and turn off and on MeshRenderer and BoxCollider
         audioSource.Play();
-        gameObject.GetComponent<MeshRenderer>().enabled = !gameObject.GetComponent<MeshRenderer>().enabled;
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
         gameObject.GetComponent<BoxCollider>().enabled = !gameObject.GetComponent<BoxCollider>().enabled;
         
         
