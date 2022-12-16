@@ -9,6 +9,9 @@ public class SendDamaged : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.name == "player")
+        {
         other.GetComponent<PlayerStats>().TakeDamaged(99999);
+        }
     }
 }
