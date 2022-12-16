@@ -54,7 +54,11 @@ public class FixTutorial : MonoBehaviour
             EventBus.Current.SetTutorialDone();
         }  
     }
-
+    private void FixedUpdate()
+    {
+        Timer -= Time.deltaTime;
+    }
+    
     private void Update()
     {
         /*
@@ -62,7 +66,6 @@ public class FixTutorial : MonoBehaviour
         if any key is pressed and time has passed set time 
         enables PlayerMovement and disables Tutorial
         */
-        Timer -= Time.deltaTime;
         if(Input.anyKey && Timer <= 0 && FinishedTutorial)
         {
             TutorialScreen.gameObject.SetActive(false);
