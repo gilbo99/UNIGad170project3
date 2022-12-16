@@ -11,22 +11,32 @@ public class PatDog : MonoBehaviour
     public string useKey;
     public TextMeshProUGUI playertext;
     public float Timer = 0.0f;
+    public int touch;
+    public GameObject scene;
+    private SceneController sceneController;
     
-    
+    void Start()
+    {
+        sceneController = new SceneController();
+    }
     void Update()
     {
         if(Playercanpat && Input.GetKeyDown("e"))
         {
             starttimer = true;
-            Dog.GetComponent<Animator>().SetBool("Patting", starttimer);
-            Timer = 1.5f;
-            Playercanpat = false;   
+            Dog.GetComponent<Animator>().SetBool("Pats", starttimer);
+            Timer = 1.5f;  
+            touch++;
+        }
+        if(touch == 3)
+        {
+            sceneController.ReloadScene();
         }
 
         if(starttimer && Timer <= 0f)
         {
             starttimer = false;
-            Dog.GetComponent<Animator>().SetBool("Patting", starttimer);
+            Dog.GetComponent<Animator>().SetBool("Pats", starttimer);
             Timer = 0f;
             
         }
@@ -40,11 +50,10 @@ public class PatDog : MonoBehaviour
 
 
     //changes the text and make it that players are able to press e and when they leave they cant
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
         Playercanpat = true;
         playertext.text = useKey;
-        
     } 
 
     void OnTriggerExit()

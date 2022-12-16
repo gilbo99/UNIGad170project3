@@ -27,13 +27,14 @@ public class ButtonTouch : MonoBehaviour
     {
         playercanclick = true;
         playertext.text = useKey;
-        
+ 
     } 
 
     void OnTriggerExit()
     {
         playercanclick = false;
         playertext.text = "";
+
     }
     
 }
